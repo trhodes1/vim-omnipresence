@@ -8,7 +8,7 @@
     g_traytip = Vim hotkey launcher (press %g_HotKey%).`nInstalled by vim plugin vim-omnipresence.
     if (!g_disabled)
         Hotkey, %g_HotKey%, Launch_vim
-    else 
+    else
         g_traytip = Vim hotkey launcher is DISABLED.`n`nTo enable it execute ':call omnipresence#toggle()' from within vim.
 
     Menu, Tray, Icon, vim.ico,,1
@@ -71,7 +71,7 @@ GetParams() {
 
 GetNewFileName() {
     EnvGet, TEMP, TEMP
-    FormatTime, time, , yyMMdd-HHmmss
+    FormatTime, time, , yyyyMMdd-HHmmss
     return TEMP . "\mm_vim_aw" . time
 }
 
