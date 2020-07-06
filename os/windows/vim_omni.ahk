@@ -71,7 +71,7 @@ GetParams() {
 
 GetNewFileName() {
     EnvGet, TEMP, TEMP
-    FormatTime, time, , yyyyMMdd-HHmmss
+    FormatTime, time, , yyyMMdd-HHmmss
     return TEMP . "\mm_vim_aw" . time
 }
 
