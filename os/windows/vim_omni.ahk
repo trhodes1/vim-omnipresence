@@ -26,7 +26,9 @@ return
 
 Launch_vim:
     g_activeHwnd := WinExist("A")
-    fname := GetNewFileName()
+    WinGetTitle, Title, A
+    fname := Title
+    ;fname := GetNewFileName()
     saved_clipboard := clipboard
     Send, ^a^c
     ClipWait, 1
