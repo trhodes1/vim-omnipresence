@@ -75,7 +75,7 @@ GetNewFileName() {
 
     WinGet, ProcessNameVariable, ProcessName, A
 
-    switch ProcessNameVariable
+    switch ProcessNameVariable ;asdf
     {
     ; MATLAB
         case "matlab.exe":
