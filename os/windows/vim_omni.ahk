@@ -95,7 +95,7 @@ GetNewFileName() {
     ; default case
         default:
             return TEMP . "\mm_vim_aw" . time
-        }
+    }
 
     return TEMP . "\" . fileName
 
