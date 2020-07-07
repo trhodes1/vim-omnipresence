@@ -73,9 +73,9 @@ GetNewFileName() {
     EnvGet, TEMP, TEMP  ; grab TEMP folder location and put in TEMP variable
     FormatTime, time, , yyyMMdd-HHmmss  ; grab current time
 
-    WinGet, ProcessName, ProcessName, A
+    WinGet, ProcessNameVariable, ProcessName, A
 
-    switch ProcessName
+    switch ProcessNameVariable
     {
     ; MATLAB
         case "matlab.exe":
