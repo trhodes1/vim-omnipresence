@@ -16,6 +16,12 @@ GetNewFileName() {
             WinGetActiveTitle, fullPath    ; grab full path (Matlab's window title)
             SplitPath, fullPath, fileName  ; extract file name
 
+            ; ensure .m extension is in the file name
+                if !InStr(fileName,".m")     ; check if current string doesn't have .m
+                {
+                    fileName = %fileName%.m   ; append .m file extension
+                }
+
     ; VSCode
         case "code.exe":
             WinGetActiveTitle, fileName
