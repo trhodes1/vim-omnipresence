@@ -71,11 +71,11 @@ GetParams() {
 
 GetNewFileName() {
     EnvGet, TEMP, TEMP  ; grab TEMP folder location and put in TEMP variable
-    FormatTime, time, , yyyMMdd-HHmmss  ; grab current time
+    FormatTime, time, , yyyyMMdd-HHmmss  ; grab current time
 
     WinGet, ProcessNameVariable, ProcessName, A
 
-    switch ProcessNameVariable ;asdf lkjlkj
+    switch ProcessNameVariable
     {
     ; MATLAB
         case "matlab.exe":
@@ -96,14 +96,14 @@ GetNewFileName() {
     ; Chrome
         case "chrome.exe":
             WinGetActiveTitle, fileName
-            return TEMP . "\mm_vim_aw_chrome" . time
 
     ; default case
         default:
-            return TEMP . "\mm_vim_aw" . time
+            WinGetActiveTitle, fileName
+            fileName = "unsupported_program_" . fileName
     }
 
-    return TEMP . "\" . fileName
+    return TEMP . "\vim_temp_" . time . "_" . fileName
 
     ; alternative to switch case
         ; if (WinActive("ahk_exe matlab.exe")){

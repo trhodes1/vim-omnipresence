@@ -5,7 +5,7 @@ MsgBox, %asdf%
 
 GetNewFileName() {
     EnvGet, TEMP, TEMP  ; grab TEMP folder location and put in TEMP variable
-    FormatTime, time, , yyyMMdd-HHmmss  ; grab current time
+    FormatTime, time, , yyyy-MM-dd-HH-mm-ss  ; grab current time
 
     WinGet, ProcessNameVariable, ProcessName, A
 
@@ -14,7 +14,7 @@ GetNewFileName() {
     ; MATLAB
         case "matlab.exe":
             WinGetActiveTitle, fullPath    ; grab full path (Matlab's window title)
-            SplitPath, fullPath, fileName  ; extract file name
+            SplitPath, fullPath, fileName  ; extract file name string to "fileName"
 
             ; ensure .m extension is in the file name
                 if !InStr(fileName,".m")     ; check if current string doesn't have .m
@@ -30,14 +30,14 @@ GetNewFileName() {
     ; Chrome
         case "chrome.exe":
             WinGetActiveTitle, fileName
-            return TEMP . "\mm_vim_aw_chrome" . time
 
     ; default case
         default:
-            return TEMP . "\mm_vim_aw" . time
-        }
+            WinGetActiveTitle, fileName
+            fileName = unsupported_program_%fileName%
+    }
 
-    return TEMP . "\" . fileName
+    return TEMP . "\vim_temp_" . time . "_" . fileName
 
     ; alternative to switch case
         ; if (WinActive("ahk_exe matlab.exe")){
